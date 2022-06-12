@@ -12,7 +12,7 @@
   <link href="./style.css" rel="stylesheet" type="text/css">
 </head>
 <br>
- 
+
 <div class="container">
     <strong><div style=' height:105px;line-height:105px;overflow:hidden;text-align:center;font-size:50px'>Final Project</div><strong>
   <div id="resource">
@@ -21,6 +21,18 @@
   </div>
 
   <nav>
+    <div class="col">
+      <label for="date">Date (From)</label>
+      <input type="date" class="form-control" id="date1" 
+        name="date1">
+    </div>
+    <div class="col">
+      <label for="date">Date (To)</label>
+      <input type="date" class="form-control" id="date2" 
+        name="date2">
+    </div><input type="button" onclick="getDates()" value="Submit" />
+    
+    <div class="row">
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
       <button class="nav-link active" id="nav-0-tab" data-bs-toggle="tab" data-bs-target="#nav-0" type="button"
         role="tab" aria-controls="nav-0" aria-selected="true">
