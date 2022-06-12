@@ -31,7 +31,7 @@ var palette = {
 }
 d3.csv("stock.csv", function(data){
   var nodes = [
-    { name: 'TWII', beta : 1}
+    { name: 'TWII', beta : 1, diff_value: 1}
   ]
   dataset = data;
   console.log(dataset);
@@ -41,11 +41,13 @@ d3.csv("stock.csv", function(data){
     }
     return false;
   });
-  console.log(results);
+  console.log(results[60]["1101"]-results[0]["1101"]);
   
   for (var i = 0, len = stock_list.length; i < len; i++) {
+    // a = 10 * ( results[results.length-1][stock_list[i]]-results[0][stock_list[i]]);
     b = regression(results,stock_list[i]);
     nodes.push({name : stock_list[i], beta:b});
+    // console.log(stock_list[i]," 差異 =",a);
     console.log(stock_list[i],"=",b);
   }
 

@@ -15,11 +15,7 @@
 <br>
 
 <div class="container">
-    <strong><div style=' height:105px;line-height:105px;overflow:hidden;text-align:center;font-size:50px'>Final Project</div><strong>
-  <div id="resource">
-    資料來源:
-    <b><a href="https://www.twse.com.tw/zh/">台灣證券交易所</a></b>
-  </div>
+    <strong><div style=' height:105px;line-height:105px;overflow:hidden;text-align:center;font-size:50px'>股票與大盤的對應關係</div><strong>
 
   <nav>
     <div class="col">
@@ -32,24 +28,26 @@
       <input type="date" class="form-control" id="date2" 
         name="date2">
     </div><input type="button" onclick="getDates()" value="Submit" />
-    
+    <div class="col-md-6">
+      <div class="chart5"></div>
+      </div>
     <div class="row">
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
       <button class="nav-link active" id="nav-0-tab" data-bs-toggle="tab" data-bs-target="#nav-0" type="button"
         role="tab" aria-controls="nav-0" aria-selected="true">
-        Force-directed
+        (TAG) 本益比
       </button>
       <button class="nav-link" id="nav-1-tab" data-bs-toggle="tab" data-bs-target="#nav-1" type="button" role="tab"
         aria-controls="nav-1" aria-selected="true">
-       股價走勢圖
+        股價走勢圖
       </button>
       <button class="nav-link" id="nav-2-tab" data-bs-toggle="tab" data-bs-target="#nav-2" type="button" role="tab"
         aria-controls="nav-2" aria-selected="false">
-       其他
+        財報
       </button>
     </div>
   </nav>
-
+  
   <div class="tab-content" id="nav-tabContent">
     <div class="tab-pane fade show active" id="nav-0" role="tabpanel" aria-labelledby="nav-0-tab">
       <div class="card" style="width: 1300px" id="HW1">
@@ -61,9 +59,7 @@
           </div> -->
           <div id="expl">
             <div id="inner-expl">
-                <div class="col-md-6">
-                <div class="chart5"></div>
-                </div>
+              <h5><span id="my-date" class="badge bg-secondary">(TAG) 本益比</span></h5><br>
           </div>
         </figure>
       </div>
@@ -102,7 +98,7 @@
       <div class="card" style="width:1300px" id="HW1">
         <figure class="text-center">
           <br>
-          <h5><span class="badge bg-secondary title">其他可能的图表</span></h5>
+          <h5><span class="badge bg-secondary title">財報</span></h5>
           <br>
           <div id="myStackedBar"></div>
           <div class="card-body">
@@ -134,5 +130,8 @@
   
 
 
-
+  <div id="resource">
+    資料來源:
+    <b><a href="https://www.twse.com.tw/zh/">台灣證券交易所</a></b>
+  </div>
 </html>
