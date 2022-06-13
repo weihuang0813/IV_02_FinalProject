@@ -36,7 +36,7 @@ d3.csv("dataset/stock.csv", function(data){
   dataset = data;
   console.log(dataset);
   const results = dataset.filter(element => {
-    if (Object.values(element)[52]>= "2022-03-05" && Object.values(element)[52]<= "2022-06-04") {
+    if (Object.values(element)[52]>= "2020-03-05" && Object.values(element)[52]<= "2020-06-04") {
       return true;
     }
     return false;
