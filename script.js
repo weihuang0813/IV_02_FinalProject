@@ -29,7 +29,7 @@ var palette = {
   "green": "#259286",
   "yellowgreen": "#738A05"
 }
-d3.csv("stock.csv", function(data){
+d3.csv("dataset/stock.csv", function(data){
   var nodes = [
     { name: 'TWII', beta : 1, diff_value: 1}
   ]
@@ -124,7 +124,7 @@ function getDates() {
   d3.select("#wei_svg").remove();
   start = document.getElementById('date1').value;
   end = document.getElementById('date2').value;
-  d3.csv("stock.csv", function(data){
+  d3.csv("dataset/stock.csv", function(data){
     dataset = data;
     console.log(dataset);
     const results = dataset.filter(element => {
