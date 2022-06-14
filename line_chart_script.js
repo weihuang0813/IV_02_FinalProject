@@ -438,10 +438,9 @@ function getDates(){
     console.log("line chart getDates()");
 }
 
-function start(){
 let src_url = "https://raw.githubusercontent.com/weihuang0813/IV_02_FinalProject/main/dataset/stock.csv"
 
-d3.csv(src_url).then(function(datas){
+d3.csv(src_url,function(datas){
     console.log("Origin Datas:\n", datas);
 
     const user_input_listener = document.getElementById("create_chart");
@@ -475,26 +474,25 @@ d3.csv(src_url).then(function(datas){
 
     let tmp = undefined;
     user_input_listener.addEventListener("click", function(){
-	s_date = sdate_listener.value;
-	e_date = edate_listener.value;
-	if(s_date.length===0 || e_date.length===0 || stocks.length<2){
-		console.log("line_chart_script: missing information");
-	        console.log("Time info: ", s_date, "~", e_date);
-		console.log("stocks: ", stocks);
-	}else{
-	    /*Need to check user input.*/
-	    console.log("Time range: ", s_date, "~", e_date);
-	    input_datas = deepCopy(date_stock_datas);
-	    draw_datas = Main(input_datas, [s_date, e_date], stocks, dateConvertFunc, stockConvertFunc);
-	    if(draw_datas.length!==0){
-	    	if(draw_count){tmp.remove();}
-	    	tmp = drawChart(draw_datas);
-    	    	draw_count += 1;
-	    }
+        s_date = sdate_listener.value;
+        e_date = edate_listener.value;
+        if(s_date.length===0 || e_date.length===0 || stocks.length<2){
+            console.log("line_chart_script: missing information");
+                console.log("Time info: ", s_date, "~", e_date);
+            console.log("stocks: ", stocks);
+        }else{
+            /*Need to check user input.*/
+            console.log("Time range: ", s_date, "~", e_date);
+            input_datas = deepCopy(date_stock_datas);
+            draw_datas = Main(input_datas, [s_date, e_date], stocks, dateConvertFunc, stockConvertFunc);
+            console.log(draw_datas.stock);
+            if(draw_datas.length!==0){
+                if(draw_count){tmp.remove();}
+                tmp = drawChart(draw_datas);
+                    draw_count += 1;
+            }
 	}
     });
 
 
 });
-}
-start();
