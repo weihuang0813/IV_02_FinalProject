@@ -485,7 +485,7 @@ d3.csv(src_url,function(datas){
             console.log("Time range: ", s_date, "~", e_date);
             input_datas = deepCopy(date_stock_datas);
             draw_datas = Main(input_datas, [s_date, e_date], stocks, dateConvertFunc, stockConvertFunc);
-            console.log(draw_datas.stock);
+            console.log(draw_datas.stock); //data的資料沒問題
             if(draw_datas.length!==0){
                 if(draw_count){tmp.remove();}
                 tmp = drawChart(draw_datas);
