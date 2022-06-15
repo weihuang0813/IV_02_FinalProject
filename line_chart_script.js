@@ -434,7 +434,7 @@ function Main(datas, dates, stocks, dateConvertFunc, stockConvertFunc){
 
 }
 
-function getDates(){
+function getDatess(){
     console.log("line chart getDates()");
 }
 
