@@ -51,6 +51,23 @@ d3.csv("dataset/stock.csv", function(data){
     console.log(stock_list[i],"=",b);
   }
 
+  var svg = d3.select('.chart5').append('svg')
+  .attr("id","lin_svg")
+  .attr({
+    width: 1080,
+    height: 1080,
+    border: '1px solid #ccc'
+  });
+  
+  svg.append('svg:image')
+  .attr({
+    'xlink:href': '螢幕擷取畫面 (205).png',  // can also add svg file here
+    x: 0,
+    y: 0,
+    width: 1080,
+    height: 1080
+  });
+
   var myChart5 = d3.select('.chart5').append('svg')
     .attr("id","wei_svg")
     .attr('width', w)
