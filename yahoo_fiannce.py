@@ -7,12 +7,12 @@ from statsmodels import regression
 
 from pandas_datareader import data as pdr
 import yfinance as yf
-stock_list = ['^TWII', '2330.TW' ,'2454.TW', '2317.TW', '2308.TW', '2303.TW', '2881.TW', '1301.TW', '1303.TW', '2882.TW', '2002.TW', 
+stock_list = ['^TWII', '2330.TW' ,'2454.TW', '2317.TW', '2308.TW', '2303.TW', '2881.TW', '1301.TW', '1303.TW', '2882.TW', '2002.TW',
               '2412.TW','2891.TW','3711.TW', '2886.TW', '1216.TW', '2884.TW', '3008.TW', '2885.TW', '3034.TW', '1326.TW', '2357.TW',
               '1101.TW','5871.TW','2379.TW', '2382.TW', '2327.TW', '2892.TW', '5880.TW', '6415.TW', '2207.TW', '2880.TW', '3045.TW',
               '2887.TW','6505.TW','2912.TW', '5876.TW', '4938.TW', '1590.TW', '2395.TW', '2474.TW', '1402.TW', '1102.TW', '2801.TW',
               '9910.TW','4904.TW','2105.TW', '6669.TW', '8046.TW', '2408.TW', '2633.TW']
-df_list = pdr.get_data_yahoo(stock_list, start = "2020-01-03", end = "2020-12-31")
+df_list = pdr.get_data_yahoo(stock_list, start = "2020-01-03", end = "2022-6-15")
 
 # # print(df3.loc['2017-'+str(8)+'-31'])
 # print(df_list)
