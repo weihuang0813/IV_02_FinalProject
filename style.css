@@ -20,7 +20,7 @@ input {
   display: flex;
   float:left;
   width:100px;
-  margin-bottom:100px;
+  margin-bottom:50px;
 }
 
 #pieChart {

@@ -100,7 +100,6 @@ function convertDatas(datas, dateConvertFunc, stockConvertFunc){
 	console.log("No data to convert.");
 	return [];
     }
-    	    console.log("TEST:", datas[0]);
 
     let converted_datas = [];
     for(let i=0;i<datas.length;i++){
@@ -193,7 +192,7 @@ function IndexChart(data, {
   defined = undefined, // for gaps in data
   curve = d3.curveLinear, // how to interpolate between points
   marginTop = 20, // top margin, in pixels
-  marginRight = 20, // right margin, in pixels
+  marginRight = 40, // right margin, in pixels
   marginBottom = 80, // bottom margin, in pixels
   marginLeft = 40, // left margin, in pixels
   width = 1000, // outer width, in pixels
@@ -435,13 +434,16 @@ function Main(datas, dates, stocks, dateConvertFunc, stockConvertFunc){
 
 }
 
-function start(){
+function getDates(){
+    console.log("line chart getDates()");
+}
+
 let src_url = "https://raw.githubusercontent.com/weihuang0813/IV_02_FinalProject/main/dataset/stock.csv"
 
-d3.csv(src_url).then(function(datas){
+d3.csv(src_url,function(datas){
     console.log("Origin Datas:\n", datas);
 
-    const user_input_listener = document.getElementById("submit");
+    const user_input_listener = document.getElementById("create_chart");
     const sdate_listener = document.getElementById("date1");
     const edate_listener = document.getElementById("date2");
     const stock_listener = document.getElementById("stocks");
@@ -452,41 +454,45 @@ d3.csv(src_url).then(function(datas){
 
     let draw_count = 0;
     let user_input_count = 0;
-    let s_date = "2020/1/1"
-    let e_date = "2020/12/31"
-let stocks = ['2330','2454','2317','2308','2303']//,'2881','1301','1303','2882','2002','2412','2891','3711','2886','1216','2884','3008','2885','3034','1326','2357','1101','5871','2379','2382','2327','2892','5880','6415','2207','2880','3045','2887','6505','2912','5876','4938','1590','2395','2474','1402','1102','2801','9910','4904','2105','6669','8046','2408','2633']
+    let s_date = "2020/1/1";
+    let e_date = "2020/12/31";
+    let stocks = []//'2330','2454','2317','2308','2303','2881','1301','1303','2882','2002','2412','2891','3711','2886','1216','2884','3008','2885','3034','1326','2357','1101','5871','2379','2382','2327','2892','5880','6415','2207','2880','3045','2887','6505','2912','5876','4938','1590','2395','2474','1402','1102','2801','9910','4904','2105','6669','8046','2408','2633']
 
 
     //Convert datas to my own format. (Return the formatted datas.)
     date_stock_datas = convertDatas(datas, dateConvertFunc, stockConvertFunc);
-    //console.log("converted datas\n", date_stock_datas);
+    console.log("converted datas\n", date_stock_datas);
 
     stock_input_listener.addEventListener("click", function(){
 	stocks.push(stock_listener.value);
+	document.getElementById("stock_list").innerHTML = "Stock List: "+ stocks;
     })
     stock_delete_listener.addEventListener("click", function(){
 	stocks.pop();
+	document.getElementById("stock_list").innerHTML = "Stock List: "+ stocks;
     })
 
     let tmp = undefined;
     user_input_listener.addEventListener("click", function(){
-	s_date = sdate_listener.value;
-	e_date = edate_listener.value;
-	/*Need to check user input.*/
-	console.log("Time range: ", s_date, "~", e_date);
-        //if(user_input_listener===2){
-	    input_datas = deepCopy(date_stock_datas);
-	    draw_datas = Main(input_datas, [s_date, e_date], stocks, dateConvertFunc, stockConvertFunc);
-
-	    if(draw_count){tmp.remove();}
-	    tmp = drawChart(draw_datas);
-    	    draw_count += 1;
-	    //user_input_count = 0;
-	//}
+        s_date = sdate_listener.value;
+        e_date = edate_listener.value;
+        if(s_date.length===0 || e_date.length===0 || stocks.length<2){
+            console.log("line_chart_script: missing information");
+                console.log("Time info: ", s_date, "~", e_date);
+            console.log("stocks: ", stocks);
+        }else{
+            /*Need to check user input.*/
+            console.log("Time range: ", s_date, "~", e_date);
+            input_datas = deepCopy(date_stock_datas);
+            draw_datas = Main(input_datas, [s_date, e_date], stocks, dateConvertFunc, stockConvertFunc);
+            console.log(draw_datas.stock); //data的資料沒問題
+            if(draw_datas.length!==0){
+                if(draw_count){tmp.remove();}
+                tmp = drawChart(draw_datas);
+                    draw_count += 1;
+            }
+	}
     });
 
 
 });
-}
-//})
-start();
