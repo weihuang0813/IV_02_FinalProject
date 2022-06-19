@@ -25,7 +25,7 @@ function draw(graph) {
         .data(graph.links)
         .enter()
         .append("line")
-        .attr("stroke-width", function (d) { return Math.sqrt(d.value) / 30; })
+        .attr("stroke-width", function (d) { return Math.sqrt(d.value) / 10; })
         //.attr("stroke-width", 0.1)
         .style("stroke", 'black');
 
