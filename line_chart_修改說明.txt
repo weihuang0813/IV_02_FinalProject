@@ -1,0 +1,14 @@
+這是lin chart 的txt檔說明
+
+1. 測試之前要先刪掉舊的tag和v6的連結:
+<script src="line_chart_script.js"></script>
+<script src="http://d3js.org/d3.v6.js"></script>
+
+(d3js v3 link)
+<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js'></script>
+
+2. 測試版本問題可以先用這個tag 裡面關掉了使用者輸入 按run可以直接跑:
+<script src="line_chart_script_test_ver.js"></script>
+
+3. 測試成功弄好的script用這個tag (要使用者輸入):
+<script src="line_chart_script_v6copy.js"></script>
