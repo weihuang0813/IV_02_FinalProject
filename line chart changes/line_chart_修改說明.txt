@@ -1,5 +1,8 @@
 這是line chart 的txt檔說明
 
+我想說放一個資料夾看得比較清楚
+但要用的話還是要把檔案拉到外面
+
 1. 測試之前要先刪掉舊的tag和v6的連結:
 <script src="line_chart_script.js"></script>
 <script src="http://d3js.org/d3.v6.js"></script>
